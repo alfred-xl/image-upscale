@@ -29,19 +29,18 @@ const replicate = new Replicate({
 async function main() {
   try {
     const imageFilePath = 'images/img1.jpg';
-    const inputImageBase64 = imageToBase64(imageFilePath);
+    const inputImageBase = imageToBase64(imageFilePath);
 
     const output = await replicate.run(
       'nightmareai/real-esrgan:42fed1c4974146d4d2414e2be2c5277c7fcf05fcc3a73abf41610695738c1d7b',
       {
         input: {
-          image: inputImageBase64,
+          image: inputImageBase,
           scale: 9,
         },
       }
     );
     
-
     console.log(output);
   } catch (error) {
     console.error('An error occurred:', error);
